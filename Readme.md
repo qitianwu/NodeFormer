@@ -1,7 +1,9 @@
-The official implementation of NeurIPS22 Spotlight paper 
-"NodeFormer: A Scalable Graph Structure Learning Transformer for Node Classification"
+## NodeFormer: A Graph Transformer for Node-Level Prediction
+ 
+The official implementation for "NodeFormer: A Scalable Graph Structure Learning Transformer for Node Classification" which
+is accepted to NeurIPS22 as a spotlight presentation.
 
-Related materials for our paper: 
+Related materials: 
 [paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
 [blog in Chinese](),
@@ -85,7 +87,7 @@ We also provide an easy access to common datasets including what we used in the 
 
 ### How to run our codes?
 
-1. Install the required package according `requirements.txt`
+1. Install the required package according to `requirements.txt`
 
 2. Download the datasets into a folder `../data`
 
@@ -128,7 +130,7 @@ for related projects concerning e.g., structure learning and communication, wher
 
 ### Citation
 
-If you find this repo and our codes helpful, please consider citing our work
+If you find our codes useful, please consider citing our work
 
 ```bibtex
       @inproceedings{wu2022nodeformer,
