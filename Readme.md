@@ -16,7 +16,7 @@ large node classification graphs, dubbed as ***NodeFormer***, as an
 alternative to common Graph Neural Networks, in particular for encoding nodes in an
 input graph into embeddings in latent space. 
 
-![](https://files.mdnice.com/user/23982/7343df02-05cb-43fc-a3e3-ca7b4434a5d8.png)
+<img width="1304" alt="image" src="https://user-images.githubusercontent.com/22075007/204024473-9de6798d-9789-4ae1-bd95-e13a71d8c1e9.png">
 
 ### The highlights of ***NodeFormer***
 
@@ -41,10 +41,10 @@ with the latent interactions among data points explicitly estimated.
 
 ### Implementation Details
 
-The following figure summaries how we achieve $O(N)$ complexity by means of organically
+The following figure presents how we achieve $O(N)$ complexity by means of organically
     combining Random Feature Map and Gumbel-Softmax strategies.
 
-![](https://files.mdnice.com/user/23982/07be83d0-faca-4989-aebf-d913cd398070.png)
+<img width="1416" alt="image" src="https://user-images.githubusercontent.com/22075007/204024564-4bc6f9ca-c997-4e9d-9523-028712191348.png">
 
 The key module of NodeFormer is the ***kernelized (Gumbel-)Softmax message passing*** which achieves all-pair message passing on a latent
 graph in each layer with $O(N)$ complexity. The `nodeformer.py` implements our model:
