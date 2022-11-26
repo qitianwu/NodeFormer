@@ -6,10 +6,10 @@ is accepted to NeurIPS22 as a spotlight presentation.
 Related materials: 
 [paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
-[blog in Chinese](),
-[blog in English](),
+blog in Chinese,
+blog in English,
 [video in Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
-[video in English]()
+video in English
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
@@ -52,8 +52,11 @@ graph in each layer with $O(N)$ complexity. The `nodeformer.py` implements our m
 - The functions `kernelized_softmax()` and `kernelized_gumbel_softmax()` implement the message passing per layer. The Gumbel version
 is only used for training.
 
-- The layer class `NodeFormerConv` implements one-layer feed-forward of NodeFormer (which contains MP on a latent graph, 
-adding relational bias and computing edge-level reg loss from input graphs if available).
+- The layer class `NodeFormerConv` implements one-layer feed-forward of NodeFormer which contains three operations:
+
+  - MP on a latent graph using kernelized (Gumbel-)Softmax
+  - Adding relational bias by input graph adjacency (using 1 or 2 hop)
+  - Computing edge-level regularization loss from observed edges in the input graph
 
 - The model class `NodeFormer` implements the model that adopts standard input (node features, adjacency) and output 
 (node prediction, edge loss).
@@ -63,6 +66,9 @@ For other files, the descriptions are below:
 - `main.py` is the pipeline for full-graph training/evaluation.
 
 - `main-batch.py` is the pipeline for training with random mini-batch partition for large datasets.
+
+- `parse.py` contains the hyper-parameter arguments, `logger.py` is for result recording and printing, `eval.py` used for model evaluation, `dataset.py` 
+contains the loader and preprocessing for each dataset, `data_utils` contains some functions for data analysis/processing, `gnn.py` implements common GNNs.
 
 ### Datasets
 
