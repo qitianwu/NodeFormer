@@ -53,12 +53,12 @@ is only used for training.
 
 - The layer class `NodeFormerConv` implements one-layer feed-forward of NodeFormer which contains three operations:
 
-  - MP on a latent graph using kernelized (Gumbel-)Softmax
-  - Adding relational bias by input graph adjacency (using 1 or 2 hop)
-  - Computing edge-level regularization loss from observed edges in the input graph
+  - Feature propagation on a latent (all-pair) graph using kernelized (Gumbel-)Softmax
+  - (optional) Adding relational bias by input graph adjacency (using 1 or 2 hop)
+  - (optional) Computing edge-level regularization loss from observed edges in the input graph
 
 - The model class `NodeFormer` implements the model that adopts standard input (node features, adjacency) and output 
-(node prediction, edge loss).
+(node prediction, edge loss) where edge loss is optional.
 
 For other files, the descriptions are below:
 
@@ -66,8 +66,8 @@ For other files, the descriptions are below:
 
 - `main-batch.py` is the pipeline for training with random mini-batch partition for large datasets.
 
-- `parse.py` contains the hyper-parameter arguments, `logger.py` is for result recording and printing, `eval.py` used for model evaluation, `dataset.py` 
-contains the loader and preprocessing for each dataset, `data_utils` contains some functions for data analysis/processing, `gnn.py` implements common GNNs.
+- `parse.py` for hyper-parameter arguments, `logger.py` for result recording and printing, `eval.py` for model evaluation, `dataset.py` 
+for loader and preprocessing of each dataset, `data_utils` contains some functions for data analysis/processing, `gnn.py` implements common GNNs.
 
 ### Datasets
 
