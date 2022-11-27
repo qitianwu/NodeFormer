@@ -86,9 +86,11 @@ later used to construct the OGBN-Products.
 for image and text classification, respectively. The Mini-Imagenet dataset is provided by [Matching Network](https://arxiv.org/abs/1606.04080),
 and 20News-Group is available at [Scikit-Learn](https://jmlr.org/papers/v12/pedregosa11a.html)
 
-We also provide an easy access to common datasets including what we used in the Google drive:
+We also provide an easy access to common datasets including what we used (except two large ones) in the Google drive:
 
     https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=share_link
+
+The two large datasets can be automatically downloaded by our dataloader functions in `dataset.py`
 
 ### How to run our codes?
 
