@@ -6,10 +6,9 @@ is accepted to NeurIPS22 as a spotlight presentation.
 Related materials: 
 [paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
-blog in Chinese,
-blog in English,
+[blog](https://zhuanlan.zhihu.com/p/587086593),
 [video in Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
-video in English
+[video in English](https://github.com/qitianwu/NodeFormer)
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
