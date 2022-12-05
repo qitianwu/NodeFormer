@@ -116,8 +116,6 @@ for run in range(args.runs):
     best_val = float('-inf')
     num_batch = train_idx.size(0) // args.batch_size + 1
 
-    train_start = time.time()
-
     for epoch in range(args.epochs):
         model.to(device)
         model.train()
@@ -166,6 +164,4 @@ for run in range(args.runs):
                   f'Test: {100 * result[2]:.2f}%')
     logger.print_statistics(run)
 
-train_time = time.time() - train_start
 results = logger.print_statistics()
-print(train_time)
