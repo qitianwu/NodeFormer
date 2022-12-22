@@ -4,12 +4,12 @@ The official implementation for "NodeFormer: A Scalable Graph Structure Learning
 is accepted to NeurIPS22 as a spotlight presentation.
 
 Related materials: 
-[paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
-[slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
-[blog English](https://medium.com/towards-data-science/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4) |
-[Chinese](https://zhuanlan.zhihu.com/p/587086593)
-[video English](https://github.com/qitianwu/NodeFormer) |
-[Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
+[[paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification)], 
+[[slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf)], 
+[[blog English](https://medium.com/towards-data-science/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4) |
+[Chinese](https://zhuanlan.zhihu.com/p/587086593)],
+[[video English](https://github.com/qitianwu/NodeFormer) |
+[Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477)]
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
