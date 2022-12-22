@@ -6,9 +6,10 @@ is accepted to NeurIPS22 as a spotlight presentation.
 Related materials: 
 [paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
-[blog](https://zhuanlan.zhihu.com/p/587086593),
-[video in Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
-[video in English](https://github.com/qitianwu/NodeFormer)
+[blog English](https://medium.com/towards-data-science/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4) |
+[Chinese](https://zhuanlan.zhihu.com/p/587086593)
+[video English](https://github.com/qitianwu/NodeFormer) |
+[Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
@@ -27,7 +28,7 @@ all-pair message passing with efficient latent structure learning to million-lev
     propagation design of GNNs that only aggregates the embeddings of neighbored nodes.
 
 - **Linear Complexity w.r.t. Node Numbers**. The all-pair message passing on latent graphs that are optimized 
-    together only requires $O(N)$ complexity, empowered by our proposed ***kernelized Gumbel-Softmax operator***. The largest demonstration of our model in our paper is the graph with 
+    together only requires $O(N)$ complexity, empowered by our proposed ***kernelized Gumbel-Softmax message passing***. The largest demonstration of our model in our paper is the graph with 
     2M nodes, yet we believe it can even scale to larger ones with the mini-batch partition.
 
 - **Efficient End-to-End Learning for Latent Structures**. The optimization for the latent structures is allowed
@@ -38,15 +39,18 @@ while on OGBN-Proteins requires 1-2 hours in one run.
 as well as predictive tasks without input graphs, e.g., image and text classification. It can also be used for interpretability analysis
 with the latent interactions among data points explicitly estimated.
 
-### Implementation Details
-
-The following figure presents how we achieve $O(N)$ complexity by means of organically
-    combining Random Feature Map and Gumbel-Softmax strategies.
+The following figure presents how we achieve $O(N)$ complexity by means of the kernelized Gumbel-Softmax message passing that organically
+    combines Random Feature Map and Gumbel-Softmax strategies.
 
 <img width="1416" alt="image" src="https://user-images.githubusercontent.com/22075007/204024564-4bc6f9ca-c997-4e9d-9523-028712191348.png">
 
-The key module of NodeFormer is the ***kernelized (Gumbel-)Softmax message passing*** which achieves all-pair message passing on a latent
-graph in each layer with $O(N)$ complexity. The `nodeformer.py` implements our model:
+### Implementation Details
+
+The data flow of NodeFormer is shown by the following figure. In each layer, it consists of three components: all-pair message passing by the kernelized Gumbel-Softmax (red box), adding relational bias (green box) and computing edge regularization loss (blue box). 
+
+![image](https://user-images.githubusercontent.com/22075007/209143490-b583b2c8-062f-4203-ba22-fa40b234f779.png)
+
+The `nodeformer.py` implements our model:
 
 - The functions `kernelized_softmax()` and `kernelized_gumbel_softmax()` implement the message passing per layer. The Gumbel version
 is only used for training.
