@@ -5,7 +5,7 @@ is accepted to NeurIPS22 as a spotlight presentation.
 
 Related materials: 
 [[paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification)], 
-[[slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf)], 
+[[slides](https://qitianwu.github.io/assets/publications/nips2022-nodeformer/slides.pdf)], 
 [[blog English](https://medium.com/towards-data-science/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4) |
 [Chinese](https://zhuanlan.zhihu.com/p/587086593)],
 [[video English](https://github.com/qitianwu/NodeFormer) |
