@@ -13,7 +13,7 @@ Related materials:
 
 [2023.11.27] We release the early version of codes for reproducibility.
 
-[2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here]() for details).
+[2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for details).
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
