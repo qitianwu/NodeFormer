@@ -53,7 +53,7 @@ elif args.dataset in ['ogbn-proteins', 'ogbn-arxiv', 'ogbn-products', 'amazon2m'
     split_idx_lst = [dataset.load_fixed_splits()
                      for _ in range(args.runs)]
 else:
-    split_idx_lst = load_fixed_splits(dataset, name=args.dataset, protocol=args.protocol)
+    split_idx_lst = load_fixed_splits(args.data_dir, dataset, dataset=args.dataset, protocol=args.protocol)
 
 n = dataset.graph['num_nodes']
 # infer the number of classes for non one-hot and one-hot labels

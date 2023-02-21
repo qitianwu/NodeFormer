@@ -48,7 +48,7 @@ with the latent interactions among data points explicitly estimated.
 The following figure summaries how we achieve $O(N)$ complexity by means of organically
     combining Random Feature Map and Gumbel-Softmax strategies.
 
-![](https://files.mdnice.com/user/23982/07be83d0-faca-4989-aebf-d913cd398070.png)
+![](https://files.mdnice.com/user/23982/3a44b263-41d0-41e2-8f84-cc9c4e80d0ba.png)
 
 The key module of NodeFormer is the ***kernelized (Gumbel-)Softmax message passing*** which achieves all-pair message passing on a latent
 graph in each layer with $O(N)$ complexity. The `nodeformer.py` implements our model:
@@ -97,7 +97,7 @@ We also provide an easy access to common datasets including what we used in the 
 | Deezer | random 50%/25%/25% | ROC-AUC | 71.24 (0.32) | |
 | Actor | random 50%/25%/25% | Accuracy | 35.31 (0.89) | |
 | OGBN-Proteins | public split | ROC-AUC | 77.45 (1.15) | [checkpoint](https://drive.google.com/drive/folders/1nVpmjV841E0PsdsIE3enxLgYl_zJr6VI) |
-| Amazon2M | random 50%/25%/25% | Accuracy | 87.85 (0.24) | [checkpoint](https://drive.google.com/drive/folders/1nVpmjV841E0PsdsIE3enxLgYl_zJr6VI) [fixed splits](https://drive.google.com/drive/folders/1zt6R05fvXfi-sWrLtxj-Pe3OgIGSWqFf) |
+| Amazon2M | random 50%/25%/25% | Accuracy | 87.85 (0.24) | [checkpoint](https://drive.google.com/drive/folders/1nVpmjV841E0PsdsIE3enxLgYl_zJr6VI), [fixed splits](https://drive.google.com/drive/folders/1zt6R05fvXfi-sWrLtxj-Pe3OgIGSWqFf) |
 | Mini-ImageNet (kNN, k=5) | random 50%/25%/25% | Accuracy | 86.77 (0.45) | |
 | Mini-ImageNet (no graph) | random 50%/25%/25% | Accuracy | 87.46 (0.36) | |
 | 20News-Group (kNN, k=5) | random 50%/25%/25% | Accuracy | 66.01 (1.18) | |
