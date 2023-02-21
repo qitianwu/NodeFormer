@@ -1,5 +1,6 @@
 from collections import defaultdict
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn.functional as F
 import scipy
@@ -11,7 +12,7 @@ from data_utils import rand_train_test_idx, even_quantile_labels, to_sparse_tens
 
 from torch_geometric.datasets import Planetoid, Amazon, Coauthor
 from torch_geometric.utils import degree
-from os import path
+import os
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
@@ -307,19 +308,24 @@ def load_amazon2m_dataset(data_dir):
     dataset.graph = ogb_dataset.graph
     dataset.graph['edge_index'] = torch.as_tensor(dataset.graph['edge_index'])
     dataset.graph['node_feat'] = torch.as_tensor(dataset.graph['node_feat'])
+    dataset.label = torch.as_tensor(ogb_dataset.labels).reshape(-1, 1)
 
-    row, col = dataset.graph['edge_index']
-    N = dataset.graph['node_feat'].size(0)
-    out_degree, idx = degree(col, N).sort(descending=True)
-
-    def load_fixed_splits(train_prop=0.08, val_prop=0.02):
+    def load_fixed_splits(train_prop=0.5, val_prop=0.25):
+        dir = f'{data_dir}ogb/ogbn_products/split/random_0.5_0.25'
         tensor_split_idx = {}
-        tensor_split_idx['train'] = idx[:int(N * train_prop)]
-        tensor_split_idx['valid'] = idx[int(N * train_prop): int(N * (train_prop + val_prop))]
-        tensor_split_idx['test'] = idx[int(N * (train_prop + val_prop)):]
+        if os.path.exists(dir):
+            tensor_split_idx['train'] = torch.as_tensor(np.loadtxt(dir + '/amazon2m_train.txt'), dtype=torch.long)
+            tensor_split_idx['valid'] = torch.as_tensor(np.loadtxt(dir + '/amazon2m_valid.txt'), dtype=torch.long)
+            tensor_split_idx['test'] = torch.as_tensor(np.loadtxt(dir + '/amazon2m_test.txt'), dtype=torch.long)
+        else:
+            os.makedirs(dir)
+            tensor_split_idx['train'], tensor_split_idx['valid'], tensor_split_idx['test'] \
+                = rand_train_test_idx(dataset.label, train_prop=train_prop, valid_prop=val_prop)
+            np.savetxt(dir + '/amazon2m_train.txt', tensor_split_idx['train'], fmt='%d')
+            np.savetxt(dir + '/amazon2m_valid.txt', tensor_split_idx['valid'], fmt='%d')
+            np.savetxt(dir + '/amazon2m_test.txt', tensor_split_idx['test'], fmt='%d')
         return tensor_split_idx
     dataset.load_fixed_splits = load_fixed_splits
-    dataset.label = torch.as_tensor(ogb_dataset.labels).reshape(-1, 1)
     return dataset
 
 def load_pokec_mat(data_dir):

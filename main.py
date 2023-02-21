@@ -105,7 +105,7 @@ adjs = []
 adj, _ = remove_self_loops(dataset.graph['edge_index'])
 adj, _ = add_self_loops(adj, num_nodes=n)
 adjs.append(adj)
-for i in range(args.rb_order - 1):
+for i in range(args.rb_order - 1): # edge_index of high order adjacency
     adj = adj_mul(adj, adj, n)
     adjs.append(adj)
 dataset.graph['adjs'] = adjs

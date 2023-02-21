@@ -6,10 +6,14 @@ is accepted to NeurIPS22 as a spotlight presentation.
 Related materials: 
 [paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification), 
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
-[blog in Chinese](),
-[blog in English](),
-[video in Chinese](https://www.bilibili.com/video/BV1MK411U7dc/?spm_id_from=333.788.recommend_more_video.2&vd_source=dd4795a9e34dbf19550fff1087216477),
-[video in English]()
+[blog in Chinese](https://zhuanlan.zhihu.com/p/587086593),
+[blog in English](https://towardsdatascience.com/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4)
+
+## What's news
+
+[2023.11.27] We release the early version of codes for reproducibility.
+
+[2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here]() for details).
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
@@ -81,15 +85,29 @@ later used to construct the OGBN-Products.
 for image and text classification, respectively. The Mini-Imagenet dataset is provided by [Matching Network](https://arxiv.org/abs/1606.04080),
 and 20News-Group is available at [Scikit-Learn](https://jmlr.org/papers/v12/pedregosa11a.html)
 
-We also provide an easy access to common datasets including what we used in the Google drive:
+We also provide an easy access to common datasets including what we used in the [Google drive](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV).
 
-    https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=share_link
+
+### Key results
+
+| Dataset | Split | Metric | Result | Note |
+| --- | --- | --- | --- | --- |
+| Cora | random 50%/25%/25% | Accuracy | 88.80 (0.26) | | 
+| CiteSeer | random 50%/25%/25% | Accuracy | 76.33 (0.59) | |
+| Deezer | random 50%/25%/25% | ROC-AUC | 71.24 (0.32) | |
+| Actor | random 50%/25%/25% | Accuracy | 35.31 (0.89) | |
+| OGBN-Proteins | public split | ROC-AUC | 77.45 (1.15) | [checkpoint](https://drive.google.com/drive/folders/1nVpmjV841E0PsdsIE3enxLgYl_zJr6VI) |
+| Amazon2M | random 50%/25%/25% | Accuracy | 87.85 (0.24) | [checkpoint](https://drive.google.com/drive/folders/1nVpmjV841E0PsdsIE3enxLgYl_zJr6VI) [fixed splits](https://drive.google.com/drive/folders/1zt6R05fvXfi-sWrLtxj-Pe3OgIGSWqFf) |
+| Mini-ImageNet (kNN, k=5) | random 50%/25%/25% | Accuracy | 86.77 (0.45) | |
+| Mini-ImageNet (no graph) | random 50%/25%/25% | Accuracy | 87.46 (0.36) | |
+| 20News-Group (kNN, k=5) | random 50%/25%/25% | Accuracy | 66.01 (1.18) | |
+| 20News-Group (no graph) | random 50%/25%/25% | Accuracy | 64.71 (1.33) | |
 
 ### How to run our codes?
 
 1. Install the required package according to `requirements.txt`
 
-2. Download the datasets into a folder `../data`
+2. Create a folder `../data` and download the datasets from [here](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV)
 
 3. To run the training and evaluation on eight datasets we used, one can use the scripts in `run.sh`:
 
@@ -113,13 +131,8 @@ python main.py --dataset mini --metric acc --rand_split --method nodeformer --lr
 
 ```
 
-### TODO
-
-- [x] Release the codes and model implementation.
-
-- [ ] Provide a detailed tutorial for NodeFormer.
-
-- [ ] Provide an example demo for emb/structure visualization.
+4. We also provide the [checkpoints](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV) of NodeFormer on two large datasets, ogbn-Proteins and Amazon2M.
+One can download the trained models into `../model/` and refer to the scripts in `run_test_large_graph.sh` for reproducing the results. 
 
 ### Further Discussions
 

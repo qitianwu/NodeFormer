@@ -71,11 +71,13 @@ print(f"num nodes {n} | num edges {edge_index.size(1)} | num classes {c} | num n
 ### Load method ###
 model = parse_method(args, dataset, n, c, d, device)
 
-# using rocauc as the eval function
+### Loss function (Single-class, Multi-class) ###
 if args.dataset in ('yelp-chi', 'deezer-europe', 'twitch-e', 'fb100', 'ogbn-proteins'):
     criterion = nn.BCEWithLogitsLoss()
 else:
     criterion = nn.NLLLoss()
+
+### Performance metric (Acc, AUC, F1) ###
 if args.metric == 'rocauc':
     eval_func = eval_rocauc
 elif args.metric == 'f1':
@@ -92,7 +94,7 @@ adjs = []
 adj, _ = remove_self_loops(edge_index)
 adj, _ = add_self_loops(adj, num_nodes=n)
 adjs.append(adj)
-for i in range(args.rb_order - 1):
+for i in range(args.rb_order - 1): # edge_index of high order adjacency
     adj = adj_mul(adj, adj, n)
     adjs.append(adj)
 dataset.graph['adjs'] = adjs
