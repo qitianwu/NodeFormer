@@ -89,6 +89,9 @@ def parser_add_main_args(parser):
     parser.add_argument('--protocol', type=str, default='semi',
                         help='protocol for cora datasets with fixed splits, semi or supervised')
     parser.add_argument('--rand_split', action='store_true', help='use random splits')
+    parser.add_argument('--rand_split_class', action='store_true',
+                        help='use random splits with a fixed number of labeled nodes for each class')
+    parser.add_argument('--label_num_per_class', type=int, default=20, help='labeled nodes randomly selected')
     parser.add_argument('--metric', type=str, default='acc', choices=['acc', 'rocauc', 'f1'],
                         help='evaluation metric')
     parser.add_argument('--knn_num', type=int, default=5, help='number of k for KNN graph')

@@ -50,6 +50,9 @@ dataset.label = dataset.label.to(device)
 if args.rand_split:
     split_idx_lst = [dataset.get_idx_split(train_prop=args.train_prop, valid_prop=args.valid_prop)
                      for _ in range(args.runs)]
+elif args.rand_split_class:
+    split_idx_lst = [dataset.get_idx_split(split_type='class', label_num_per_class=args.label_num_per_class)
+                     for _ in range(args.runs)]
 elif args.dataset in ['ogbn-proteins', 'ogbn-arxiv', 'ogbn-products', 'amazon2m']:
     split_idx_lst = [dataset.load_fixed_splits()
                      for _ in range(args.runs)]
