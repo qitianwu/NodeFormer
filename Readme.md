@@ -11,11 +11,11 @@ Related materials:
 
 ## What's news
 
-[2022.11.27] We release the early version of codes for reproducibility.
+- [2022.11.27] We release the early version of codes for reproducibility.
 
-[2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for details).
+- [2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for details).
 
-[2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details)
+- [2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details)
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
@@ -72,22 +72,25 @@ For other files, the descriptions are below:
 
 ### Datasets
 
-The datasets we used span three categories (Sec 4.1, 4.2, 4.3 in our paper)
+We provide an easy access to the used datasets in the [Google drive](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing).
+This also contains other commonly used graph datasets, except the large-scale graphs OGBN-Proteins and Amazon2M which can be downloaded automatically with our [codes](https://github.com/qitianwu/NodeFormer/blob/50fe19b7b1e67290d42d5b98ae82a981be40631c/dataset.py#L267)
+See [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for how to get the datasets ready for running our codes.
 
-- Transductive Node Classification: we use two homophilous graphs Cora and Citeseer and two heterophilic graphs Deezer-Europe and Actor.
+The information and sources of datasets are summarized below
+
+- Transductive Node Classification (Sec 4.1 in paper): we use two homophilous graphs Cora and Citeseer and two heterophilic graphs Deezer-Europe and Actor.
 These graph datasets are all public available at [Pytorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html). The Deezer dataset is provided from 
 [Non-Homophilous Benchmark](https://github.com/CUAI/Non-Homophily-Benchmarks),
 and the Actor (also called Film) dataset is provided by [Geom-GCN](https://github.com/graphdml-uiuc-jlu/geom-gcn). 
 
-- Large Graph Datasets: we use OGBN-Proteins and Amazon2M as two large-scale datasets. These datasets are available
+- Large Graph Datasets (Sec 4.2 in paper): we use OGBN-Proteins and Amazon2M as two large-scale datasets. These datasets are available
 at [OGB](https://github.com/snap-stanford/ogb). The original Amazon2M is collected by [ClusterGCN](https://arxiv.org/abs/1905.07953) and 
 later used to construct the OGBN-Products.
 
-- Graph-Enhanced Classification: we also consider two datasets without input graphs, i.e., Mini-Imagenet and 20News-Group 
+- Graph-Enhanced Classification (Sec 4.3 in paper): we also consider two datasets without input graphs, i.e., Mini-Imagenet and 20News-Group 
 for image and text classification, respectively. The Mini-Imagenet dataset is provided by [Matching Network](https://arxiv.org/abs/1606.04080),
 and 20News-Group is available at [Scikit-Learn](https://jmlr.org/papers/v12/pedregosa11a.html)
 
-We also provide an easy access to common datasets including what we used in the [Google drive](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing).
 
 
 ### Key results
@@ -114,6 +117,7 @@ We also provide an easy access to common datasets including what we used in the 
 1. Install the required package according to `requirements.txt`
 
 2. Create a folder `../data` and download the datasets from [here](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing)
+(For large graph datasets Proteins and Amazon2M, the datasets will be automatically downloaded)
 
 3. To run the training and evaluation on eight datasets we used, one can use the scripts in `run.sh`:
 
@@ -137,8 +141,8 @@ python main.py --dataset mini --metric acc --rand_split --method nodeformer --lr
 
 ```
 
-4. We also provide the [checkpoints](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) of NodeFormer on two large datasets, ogbn-Proteins and Amazon2M.
-One can download the trained models into `../model/` and refer to the scripts in `run_test_large_graph.sh` for reproducing the results. 
+4. We also provide the [checkpoints](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) of NodeFormer on two large datasets, OGBN-Proteins and Amazon2M.
+One can download the trained models into `../model/` and run the scripts in `run_test_large_graph.sh` for reproducing the results. 
 
 ### Further Discussions
 
