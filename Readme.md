@@ -169,5 +169,10 @@ If you find our codes useful, please consider citing our work
 
 ### ACK
 
-We refer to the [Performer](https://github.com/lucidrains/performer-pytorch) work for the implementation of softmax kernel computation, 
-and the pipeline for training and preprocessing is developed on basis of the [Non-Homophilous Benchmark](https://github.com/CUAI/Non-Homophily-Benchmarks) project. 
+We acknowledge the implementation of the softmax kernel 
+
+https://github.com/lucidrains/performer-pytorch
+
+and the training pipeline for GNN node classification
+ 
+https://github.com/CUAI/Non-Homophily-Benchmarks 
