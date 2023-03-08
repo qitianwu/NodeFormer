@@ -15,6 +15,7 @@ Related materials:
 
 [2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for details).
 
+[2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details)
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
@@ -91,18 +92,22 @@ We also provide an easy access to common datasets including what we used in the 
 
 ### Key results
 
-| Dataset | Split | Metric | Result | Note |
+| Dataset | Split | Metric | Result | Hyper-parameters/Checkpoints |
 | --- | --- | --- | --- | --- |
-| Cora | random 50%/25%/25% | Accuracy | 88.80 (0.26) | | 
-| CiteSeer | random 50%/25%/25% | Accuracy | 76.33 (0.59) | |
-| Deezer | random 50%/25%/25% | ROC-AUC | 71.24 (0.32) | |
-| Actor | random 50%/25%/25% | Accuracy | 35.31 (0.89) | |
-| OGBN-Proteins | public split | ROC-AUC | 77.45 (1.15) | [checkpoint](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) |
-| Amazon2M | random 50%/25%/25% | Accuracy | 87.85 (0.24) | [checkpoint and fixed splits](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) |
-| Mini-ImageNet (kNN, k=5) | random 50%/25%/25% | Accuracy | 86.77 (0.45) | |
-| Mini-ImageNet (no graph) | random 50%/25%/25% | Accuracy | 87.46 (0.36) | |
-| 20News-Group (kNN, k=5) | random 50%/25%/25% | Accuracy | 66.01 (1.18) | |
-| 20News-Group (no graph) | random 50%/25%/25% | Accuracy | 64.71 (1.33) | |
+| Cora | random 50%/25%/25% | Accuracy | 88.80 (0.26) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) | 
+| CiteSeer | random 50%/25%/25% | Accuracy | 76.33 (0.59) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| Deezer | random 50%/25%/25% | ROC-AUC | 71.24 (0.32) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| Actor | random 50%/25%/25% | Accuracy | 35.31 (0.89) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| OGBN-Proteins | public split | ROC-AUC | 77.45 (1.15) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh), [checkpoint](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing), [test script](https://github.com/qitianwu/NodeFormer/blob/main/run_test_large_graph.sh) |
+| Amazon2M | random 50%/25%/25% | Accuracy | 87.85 (0.24) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh), [checkpoint and fixed splits](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing), [test script](https://github.com/qitianwu/NodeFormer/blob/main/run_test_large_graph.sh) |
+| Mini-ImageNet (kNN, k=5) | random 50%/25%/25% | Accuracy | 86.77 (0.45) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| Mini-ImageNet (no graph) | random 50%/25%/25% | Accuracy | 87.46 (0.36) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| 20News-Group (kNN, k=5) | random 50%/25%/25% | Accuracy | 66.01 (1.18) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| 20News-Group (no graph) | random 50%/25%/25% | Accuracy | 64.71 (1.33) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run.sh) |
+| Cora | 20 nodes per class for train | Accuracy |  83.4 (0.2) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run_extra.sh) | 
+| CiteSeer | 20 nodes per class for train | Accuracy | 73.0 (0.3) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run_extra.sh) |
+| Pubmed | 20 nodes per class for train | Accuracy | 81.5 (0.4) | [train script](https://github.com/qitianwu/NodeFormer/blob/main/run_extra.sh) |
+
 
 ### How to run our codes?
 
