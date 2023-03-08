@@ -143,11 +143,11 @@ One can download the trained models into `../model/` and run the scripts in `run
 
 NodeFormer can in principle be applied to solve three families of tasks:
 
-- Node-Level Prediction on (Large) Graphs: use NodeFormer to replace GNN encoder as an encoder backbone for graph-structured data.
+- ***Node-Level Prediction on (Large) Graphs***: use NodeFormer to replace GNN encoder as an encoder backbone for graph-structured data.
 
-- General Machine Learning Problems: use NodeFormer as an encoder that computes instance representations by their global all-pair interactions, for general ML tasks, e.g., classification or regression.
+- ***General Machine Learning Problems***: use NodeFormer as an encoder that computes instance representations by their global all-pair interactions, for general ML tasks, e.g., classification or regression.
 
-- Learning Latent Graph Structures: use NodeFormer to learn latent graphs among a set of objects.
+- ***Learning Latent Graph Structures***: use NodeFormer to learn latent graphs among a set of objects.
 
 Our work takes an initial step for exploring how to build a scalable graph Transformer model
 for node classification, and we also believe there exists ample room for further research and development
