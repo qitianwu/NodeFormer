@@ -45,12 +45,7 @@ while on OGBN-Proteins requires 1-2 hours in one run.
 as well as predictive tasks without input graphs, e.g., image and text classification. It can also be used for interpretability analysis
 with the latent interactions among data points explicitly estimated.
 
-### Implementation Details
-
-The following figure summaries how we achieve $O(N)$ complexity by means of organically
-    combining Random Feature Map and Gumbel-Softmax strategies.
-
-![](https://files.mdnice.com/user/23982/3a44b263-41d0-41e2-8f84-cc9c4e80d0ba.png)
+### Structures of the Codes
 
 The key module of NodeFormer is the ***kernelized (Gumbel-)Softmax message passing*** which achieves all-pair message passing on a latent
 graph in each layer with $O(N)$ complexity. The `nodeformer.py` implements our model:
@@ -144,7 +139,15 @@ python main.py --dataset mini --metric acc --rand_split --method nodeformer --lr
 4. We also provide the [checkpoints](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) of NodeFormer on two large datasets, OGBN-Proteins and Amazon2M.
 One can download the trained models into `../model/` and run the scripts in `run_test_large_graph.sh` for reproducing the results. 
 
-### Further Discussions
+### Potential Applications and More Usability
+
+NodeFormer can in principle be applied to solve three families of tasks:
+
+- Node-Level Prediction on (Large) Graphs: use NodeFormer to replace GNN encoder as an encoder backbone for graph-structured data.
+
+- General Machine Learning Problems: use NodeFormer as an encoder that computes instance representations by their global all-pair interactions, for general ML tasks, e.g., classification or regression.
+
+- Learning Latent Graph Structures: use NodeFormer to learn latent graphs among a set of objects.
 
 Our work takes an initial step for exploring how to build a scalable graph Transformer model
 for node classification, and we also believe there exists ample room for further research and development
