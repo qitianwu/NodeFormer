@@ -139,6 +139,8 @@ python main.py --dataset mini --metric acc --rand_split --method nodeformer --lr
 4. We also provide the [checkpoints](https://drive.google.com/drive/folders/1sWIlpeT_TaZstNB5MWrXgLmh522kx4XV?usp=sharing) of NodeFormer on two large datasets, OGBN-Proteins and Amazon2M.
 One can download the trained models into `../model/` and run the scripts in `run_test_large_graph.sh` for reproducing the results. 
 
+- For Amazon2M, to ensure obtaining the result as ours, one need to download the fixed splits from [here](https://drive.google.com/drive/folders/1zt6R05fvXfi-sWrLtxj-Pe3OgIGSWqFf?usp=sharing) to `../data/ogb/ogbn_products/split/random_0.5_0.25`.
+
 ### Potential Applications and More Usability
 
 NodeFormer can in principle be applied to solve three families of tasks:
