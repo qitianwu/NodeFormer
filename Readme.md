@@ -8,6 +8,8 @@ Related materials:
 [slides](https://qitianwu.github.io/assets/NodeFormer-slides.pdf), 
 [blog in Chinese](https://zhuanlan.zhihu.com/p/587086593),
 [blog in English](https://towardsdatascience.com/scalable-graph-transformers-for-million-nodes-2f0014ceb9d4)
+[vedio Chinese](https://www.bilibili.com/video/BV1xR4y1i7bZ/?spm_id_from=333.999.0.0&vd_source=dd4795a9e34dbf19550fff1087216477)
+[vedio English](https://slideslive.com/38991349/nodeformer-a-scalable-graph-structure-learning-transformer-for-node-classification?ref=speaker-78611)
 
 ## What's news
 
