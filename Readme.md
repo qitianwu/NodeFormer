@@ -12,13 +12,17 @@ Related materials:
 [English](https://slideslive.com/38991349/nodeformer-a-scalable-graph-structure-learning-transformer-for-node-classification?ref=speaker-78611)],
 [[tutorial](https://medium.com/p/d507e103d30a)]
 
+We have another work [DIFFormer](https://github.com/qitianwu/DIFFormer) whose implementation is based on NodeFormer is recently accepted by ICLR2023 as a spotlight oral representation.
+
 ## What's news
 
 - [2022.11.27] We release the early version of codes for reproducibility.
 
 - [2023.02.20] We provide the checkpoints of NodeFormer on ogbn-Proteins and Amazon2M (see [here](https://github.com/qitianwu/NodeFormer#how-to-run-our-codes) for details).
 
-- [2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details)
+- [2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details).
+
+- [2023.04.24] Another work DIFFormer (the 2.0 of NodeFormer, with simplified linear attention) will appear on ICLR2023. The open source [implementation](https://github.com/qitianwu/DIFFormer) is ready.
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
