@@ -22,7 +22,7 @@ We have another work [DIFFormer](https://github.com/qitianwu/DIFFormer) whose im
 
 - [2023.03.08] We add results on cora, citeseer, pubmed with semi-supervised random splits (see [here](https://github.com/qitianwu/NodeFormer#key-results) for details).
 
-- [2023.04.24] Another work DIFFormer (the 2.0 of NodeFormer, with simplified linear attention) will appear on ICLR2023. The open source [implementation](https://github.com/qitianwu/DIFFormer) is ready.
+- [2023.04.24] Another work DIFFormer (with linear attention) will appear on ICLR2023. The open source [implementation](https://github.com/qitianwu/DIFFormer) is ready.
 
 - [2023.04.27] Upload the script for figure plotting `plot_main.ipynb` which contains the exact scores used for our figures in the paper.
 
