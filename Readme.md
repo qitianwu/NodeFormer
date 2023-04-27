@@ -24,6 +24,8 @@ We have another work [DIFFormer](https://github.com/qitianwu/DIFFormer) whose im
 
 - [2023.04.24] Another work DIFFormer (the 2.0 of NodeFormer, with simplified linear attention) will appear on ICLR2023. The open source [implementation](https://github.com/qitianwu/DIFFormer) is ready.
 
+- [2023.04.27] Upload the script for figure plotting `plot_main.ipynb` which contains the exact scores used for our figures in the paper.
+
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
 alternative to common Graph Neural Networks, in particular for encoding nodes in an
