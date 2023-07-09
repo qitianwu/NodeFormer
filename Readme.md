@@ -26,6 +26,8 @@ We have another work [DIFFormer](https://github.com/qitianwu/DIFFormer) whose im
 
 - [2023.04.27] Upload the script for figure plotting `plot_main.ipynb` which contains the exact scores used for our figures in the paper.
 
+- [2023.07.03] I gave a talk on LOG seminar about scalable graph Transformers. See the online video [here](https://www.bilibili.com/video/BV1dP411C7Ti/?share_source=copy_web&vd_source=28f0a1823e05d5df3685cb9737bba371).
+
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
 alternative to common Graph Neural Networks, in particular for encoding nodes in an
