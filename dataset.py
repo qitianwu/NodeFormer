@@ -17,7 +17,10 @@ import os
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
 import networkx as nx
+from networkx.readwrite import json_graph
 import scipy.sparse as sp
+
+import json
 
 from ogb.nodeproppred import NodePropPredDataset
 
@@ -85,9 +88,11 @@ class NCDataset(object):
         return '{}({})'.format(self.__class__.__name__, len(self))
 
 
-def load_dataset(data_dir, dataname, sub_dataname=''):
+def load_dataset(data_dir, dataname, prefix, sub_dataname=''):
     if dataname in ('cora', 'citeseer', 'pubmed'):
         dataset = load_planetoid_dataset(data_dir, dataname)
+    elif dataname in ('trojan'):
+        dataset = load_trojan_data(data_dir,dataname,prefix)
     elif dataname in ('amazon-photo', 'amazon-computer'):
         dataset = load_amazon_dataset(data_dir, dataname)
     elif dataname in ('coauthor-cs', 'coauthor-physics'):
@@ -401,6 +406,7 @@ def load_yelpchi_dataset(data_dir):
     dataset.label = label
     return dataset
 
+torch_dataset_file = open("torch_dataset.txt","w")
 
 def load_planetoid_dataset(data_dir, name):
     transform = T.NormalizeFeatures()
@@ -410,12 +416,19 @@ def load_planetoid_dataset(data_dir, name):
     data = torch_dataset[0]
 
     edge_index = data.edge_index
+    # print(edge_index)
+    # edge_example = edge_index[:, np.where(edge_index[0]==30)[0]]
+    # print(edge_example)
+    # tensor([[  30,   30,   30,   30,   30,   30],
+    #     [ 697,  738, 1358, 1416, 2162, 2343]])
+
     node_feat = data.x
+    # print(node_feat)
     label = data.y
+    print(len(label))
     num_nodes = data.num_nodes
 
     dataset = NCDataset(name)
-
     dataset.train_idx = torch.where(data.train_mask)[0]
     dataset.valid_idx = torch.where(data.val_mask)[0]
     dataset.test_idx = torch.where(data.test_mask)[0]
@@ -425,8 +438,78 @@ def load_planetoid_dataset(data_dir, name):
                      'edge_feat': None,
                      'num_nodes': num_nodes}
     dataset.label = label
-
+    # print(node_feat)
+    # print(num_nodes)
     return dataset
+
+
+def load_trojan_data(data_dir,dataname,prefix):
+    G_location = os.path.join(data_dir,prefix+"-G.json")
+    G_data = json.load(open(G_location))
+
+    G = json_graph.node_link_graph(G_data)
+    # edge_index
+    # extract source and target nodes
+    source = []
+    target = []
+    for edge in G.edges():
+        source.append(edge[0])
+        target.append(edge[1])
+    source = torch.tensor(source)
+    target = torch.tensor(target)
+    edge_index = torch.stack((source, target), dim=0)
+
+    # node_feat
+    feat_location = os.path.join(data_dir,prefix+"-feats.npy")
+    if os.path.exists(feat_location):
+        feats = np.load(feat_location)
+    else:
+        print("No features present.. Only identity features will be used.")
+        feats = None    
+    node_feat = torch.tensor(feats,dtype=torch.float32)  # Convert feats to torch.Tensor
+
+    # num_nodes
+    num_nodes = G.number_of_nodes()
+    # val_mask
+    val_nodes = []
+
+    for node in G.nodes(data=True):
+        if node[1].get('val', False):
+            val_nodes.append(node[0])
+    val_mask = torch.tensor(val_nodes)
+    # test_mask
+    test_nodes = []
+
+    for node in G.nodes(data=True):
+        if node[1].get('test', False):
+            test_nodes.append(node[0])
+    test_mask = torch.tensor(test_nodes)
+
+    # train_mask
+    filtered_nodes = []
+
+    for node in G.nodes(data=True):
+        if not node[1].get('val', True) and not node[1].get('test', True):
+            filtered_nodes.append(node[0])
+    train_mask = torch.tensor(filtered_nodes)
+
+    # label
+    class_location = os.path.join(data_dir,prefix+"-class_map.json")
+    class_map = json.load(open(class_location))
+    label = torch.tensor(list(class_map.values()))
+    
+    dataset = NCDataset(prefix)
+    dataset.train_idx = train_mask
+    dataset.valid_idx = val_mask
+    dataset.test_idx = test_mask
+
+    dataset.graph = {'edge_index': edge_index,
+                     'node_feat': node_feat,
+                     'edge_feat': None,
+                     'num_nodes': num_nodes}
+    dataset.label = label
+    return dataset
+
 
 
 def load_amazon_dataset(data_dir, name):
