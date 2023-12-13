@@ -40,7 +40,7 @@ else:
     device = torch.device("cuda:" + str(args.device)) if torch.cuda.is_available() else torch.device("cpu")
 
 ### Load and preprocess data ###
-dataset = load_dataset(args.data_dir, args.dataset, args.sub_dataset)
+dataset = load_dataset(args.data_dir, args.dataset, args.prefix)
 
 if len(dataset.label.shape) == 1:
     dataset.label = dataset.label.unsqueeze(1)
