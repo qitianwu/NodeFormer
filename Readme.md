@@ -1,4 +1,4 @@
-## NodeFormer: A Graph Transformer for Node-Level Prediction
+## NodeFormer: A Graph Transformer with Linear Complexity
  
 The official implementation for "NodeFormer: A Scalable Graph Structure Learning Transformer for Node Classification" which
 is accepted to NeurIPS22 as a spotlight presentation.
@@ -27,6 +27,8 @@ We have another work [DIFFormer](https://github.com/qitianwu/DIFFormer) whose im
 - [2023.04.27] Upload the script for figure plotting `plot_main.ipynb` which contains the exact scores used for our figures in the paper.
 
 - [2023.07.03] I gave a talk on LOG seminar about scalable graph Transformers. See the online video [here](https://www.bilibili.com/video/BV1dP411C7Ti/?share_source=copy_web&vd_source=28f0a1823e05d5df3685cb9737bba371).
+
+- [2023.09.30] A follow-up work SGFormer (with simplified one-layer attentional architecture) will appear on NeurIPS2023. The open source [implementation](https://github.com/qitianwu/SGFormer) is ready.
 
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
