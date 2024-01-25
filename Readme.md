@@ -12,7 +12,7 @@ Related materials:
 [English](https://slideslive.com/38991349/nodeformer-a-scalable-graph-structure-learning-transformer-for-node-classification?ref=speaker-78611)],
 [[tutorial](https://medium.com/p/d507e103d30a)]
 
-Two follow-up works: [DIFFormer](https://github.com/qitianwu/DIFFormer) (ICLR2023 spotlight) a physics-inspired scalable Transformer, [SGFormer](https://github.com/qitianwu/SGFormer) a simplified Transformer with one-layer attention
+Two follow-up works: [DIFFormer](https://github.com/qitianwu/DIFFormer) (ICLR2023 spotlight) a physics-inspired scalable Transformer, [SGFormer](https://github.com/qitianwu/SGFormer) (NeurIPS2023) a simplified Transformer with one-layer attention
 
 ## What's news
 
