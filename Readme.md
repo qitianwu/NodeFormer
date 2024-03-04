@@ -30,6 +30,8 @@ Two follow-up works: [DIFFormer](https://github.com/qitianwu/DIFFormer) (ICLR202
 
 - [2023.09.30] A follow-up work SGFormer (with simplified one-layer attentional architecture) will appear on NeurIPS2023. The open source [implementation](https://github.com/qitianwu/SGFormer) is ready.
 
+- [2024.03.04] Gave a 10-min talk summarizing NodeFormer, DIFFormer and SGFormer. See the [video](https://www.bilibili.com/video/BV1Gx4y1r7ZQ/?spm_id_from=333.999.0.0&vd_source=dd4795a9e34dbf19550fff1087216477).
+
 This work takes an initial step for exploring Transformer-style graph encoder networks for 
 large node classification graphs, dubbed as ***NodeFormer***, as an
 alternative to common Graph Neural Networks, in particular for encoding nodes in an
