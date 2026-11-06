@@ -1,7 +1,7 @@
 ## NodeFormer: A Graph Transformer with Linear Complexity
  
 The official implementation for "NodeFormer: A Scalable Graph Structure Learning Transformer for Node Classification" which
-is accepted to NeurIPS22 as a spotlight presentation.
+is accepted to NeurIPS2022 as a spotlight presentation.
 
 Related materials: 
 [[paper](https://www.researchgate.net/publication/363845271_NodeFormer_A_Scalable_Graph_Structure_Learning_Transformer_for_Node_Classification)], 
